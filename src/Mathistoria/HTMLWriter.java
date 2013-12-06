@@ -6,16 +6,23 @@
  *
  */
 
+package Mathistoria;
+
 public class HTMLWriter extends Writer {
 
     public HTMLWriter()
     {
+
         super(Format.HTML);
+
     }
 
     public boolean write(Chronology chronology, String outputFolder)
     {
+
         return true;
+
     }
+
 }
 

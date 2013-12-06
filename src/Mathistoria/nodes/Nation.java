@@ -6,12 +6,14 @@
  *
  */
 
+package Mathistoria;
 
-public class Chronology {
+public class Nation extends Node {
 
-    public Chronology()
+    protected final static Type fType = Type.Nation;
+
+    public Nation()
     {
-        
     }
 
 }

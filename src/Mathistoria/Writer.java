@@ -6,8 +6,9 @@
  *
  */
 
+package Mathistoria;
 
-public class Writer {
+public abstract class Writer {
 
     static protected enum Format {
         HTML
@@ -17,16 +18,23 @@ public class Writer {
 
     public Writer()
     {
+
         this(Format.HTML);
+
     }
 
     public Writer(Format outputFormat)
     {
+
         fOutputFormat = outputFormat;
+
     }
 
     public boolean write(Chronology chronology)
     {
+
         return false;
+
     }
+
 }

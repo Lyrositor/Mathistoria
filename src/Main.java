@@ -6,12 +6,15 @@
  *
  */
 
+import Mathistoria.*;
 
-public class Mathistoria {
+public class Main {
 
-    final static int PERIOD = 12;
+    private final static int MONTHS = 12;
 
-    // Starts the main loop; each iteration corresponds to one month.
+    /**
+     *  Starts the main loop; each iteration corresponds to one month.
+     */
     public static void main(String args[]) {
 
         int maxYears;
@@ -35,12 +38,13 @@ public class Mathistoria {
         }
 
         // Main loop.
-        for (int i=0; i < maxYears * PERIOD; i++)
+        for (int i=0; i < maxYears * MONTHS; i++)
         {
-            System.out.printf("Simulating Year %d, Period %d\n",
-                (i - i % PERIOD) / PERIOD,
-                i % PERIOD
+            System.out.printf("Simulating Year %d, Month %d\n",
+                (i - i % MONTHS) / MONTHS,
+                i % MONTHS
             );
+            chronology.generateEvents(i);
         }
 
         // Output the data in HTML format by default.
