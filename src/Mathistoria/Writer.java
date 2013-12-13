@@ -8,7 +8,7 @@
 
 package Mathistoria;
 
-public abstract class Writer {
+abstract class Writer {
 
     static protected enum Format {
         HTML

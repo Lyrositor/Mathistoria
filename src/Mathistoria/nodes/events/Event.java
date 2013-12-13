@@ -8,9 +8,9 @@
 
 package Mathistoria;
 
-public abstract class Event {
+abstract class Event extends Node {
 
-    public static enum Type {
+    public static enum EventType {
         Epidemic,
         Famine,
         GoldenAge,
@@ -18,24 +18,34 @@ public abstract class Event {
         NationDestroyed,
         PersonBorn,
         Revolution,
-        War,
+        WarEnded,
+        WarStarted,
         Default
     }
+    protected int fPeriod;
 
-    protected final static Type fType = Type.Default;
+    protected final static EventType fEventType = EventType.Default;
 
-    public Event()
+    /**
+     * Initializes a new event.
+     * @param period The period associated with the event.
+     */
+    public Event(int period)
     {
+
+        super();
+        fPeriod = period;
+
     }
 
     /**
      * Returns the event's type.
      */
-    public Type getType() {
+    public EventType getEventType()
+    {
 
-        return fType;
+        return fEventType;
 
     }
 
 }
-

@@ -16,7 +16,9 @@
 
     <target name="compile">
         <mkdir dir="${classes.dir}"/>
-        <javac srcdir="${src.dir}" destdir="${classes.dir}" includeantruntime="false"/>
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" includeantruntime="false">
+            <compilerarg value="-Xlint:unchecked"/>
+        </javac>
     </target>
 
     <target name="jar" depends="compile">
@@ -29,7 +31,10 @@
     </target>
 
     <target name="run" depends="jar">
-        <java jar="${jar.dir}/${ant.project.name}.jar" fork="true"/>
+        <java jar="${jar.dir}/${ant.project.name}.jar" fork="true">
+            <arg value="5"/>
+            <arg path="output"/>
+        </java>
     </target>
 
     <target name="clean-build" depends="clean,jar"/>

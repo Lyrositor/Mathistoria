@@ -8,9 +8,10 @@
 
 package Mathistoria;
 
-public abstract class Node {
+abstract class Node {
 
-    static public enum Type {
+    public static enum Type {
+        Event,
         Nation,
         Person,
         War,
@@ -19,12 +20,36 @@ public abstract class Node {
 
     protected final static Type fType = Type.Default;
 
+    protected int fNodeId;
+
+    /**
+     * Returns the node's ID, as stored in the NodeList.
+     */
+    public int getId()
+    {
+
+        return fNodeId;
+
+    }
+
     /**
      * Returns the node's type.
      */
-    public Type getType() {
+    public Type getType()
+    {
 
         return fType;
+
+    }
+
+    /**
+     * Sets the node's ID, as stored in the NodeList.
+     * @param nodeId The node's new ID.
+     */
+    public void setId(int nodeId)
+    {
+
+        fNodeId = nodeId;
 
     }
 
