@@ -23,6 +23,7 @@ class NationFounded extends Event {
     {
 
         super(period);
+        System.out.printf("Founded nation: %s\n", nation.getName());
         fNation = nation;
 
     }
