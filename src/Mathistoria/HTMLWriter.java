@@ -8,6 +8,8 @@
 
 package Mathistoria;
 
+import java.io.*;
+
 public class HTMLWriter extends Writer {
 
     public HTMLWriter()
@@ -17,8 +19,11 @@ public class HTMLWriter extends Writer {
 
     }
 
-    public boolean write(Chronology chronology, String outputFolder)
+    public boolean write(Chronology chronology, String outputPath)
     {
+
+        File outputDir = new File(outputPath);
+        outputDir.mkdirs();
 
         return true;
 

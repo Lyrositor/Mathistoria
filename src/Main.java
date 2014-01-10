@@ -42,7 +42,7 @@ public class Main {
         {
             System.out.printf("Simulating Year %d, Month %d\n",
                 (i - i % MONTHS) / MONTHS,
-                i % MONTHS
+                i % MONTHS + 1
             );
             chronology.generateEvents(i);
         }

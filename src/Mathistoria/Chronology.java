@@ -28,22 +28,27 @@ public class Chronology {
     /**
      * Based on the current state, calculates the next event(s) to
      * occur.
-     * @param i The current period being simulated.
+     * @param period The current period being simulated.
      */
-    public void generateEvents(int i)
+    public void generateEvents(int period)
     {
         
-        fCurrentPeriod = i;
+        fCurrentPeriod = period;
 
         // Always generate a new nation when the simulation begins.
-        if (i == 0)
+        if (period == 0)
         {
             addEvent(Event.EventType.NationFounded);
             return;
         }
 
         // Process each nation to determine their current state.
-        
+        ArrayList<Nation> nations = fNodes.getByType(new Nation(0));
+        for (int i = 0; i < nations.size(); i++)
+        {
+            Nation nation = nations.get(i);
+            nation.update(fCurrentPeriod);
+        }
 
     }
 
@@ -131,6 +136,36 @@ public class Chronology {
                     return node;
             }
             return null;
+
+        }
+
+        /**
+         * Returns a list of nodes with the specified Type.
+         * @param nodeType The type of node to look for.
+         */
+        public <T> ArrayList<T> getByType(T type)
+        {
+
+            ArrayList<T> filteredNodes = new ArrayList<T>();
+            for (int i = 0; i < fNodeList.size(); i++)
+            {
+                if (fNodeList.get(i).getClass().equals(type.getClass()))
+                {
+                    T node = (T) fNodeList.get(i);
+                    filteredNodes.add(node);
+                }
+            }
+            return filteredNodes;
+
+        }
+
+        /**
+         * Returns a list of all nodes.
+         */
+        public Node[] getNodes()
+        {
+
+            return fNodeList.toArray(new Node[fNodeList.size()]);
 
         }
     }

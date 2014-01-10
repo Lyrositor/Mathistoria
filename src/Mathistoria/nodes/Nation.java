@@ -10,10 +10,10 @@ package Mathistoria;
 
 class Nation extends Node {
 
-    protected final static Type fType = Type.Nation;
-
     private int fFoundationPeriod;
+    private double fHappiness;
     private int fPopulation;
+    private double fPopulationMod;
 
     /**
      * Founds a new nation and generates its characteristics randomly.
@@ -24,6 +24,22 @@ class Nation extends Node {
     {
 
         fFoundationPeriod = foundationPeriod;
+        fHappiness = Math.random() * 0.3 + 0.7;
+        fPopulation = (int) Math.random() * 5000 + 10000;
+        fPopulationMod = Math.random() * 3 + 1.2;
+        fPopulation *= Math.sqrt((double) foundationPeriod + 1);
+        update(foundationPeriod);
+
+    }
+
+    /**
+     * Updates the nation's properties to account for the time which has
+     * passed.
+     */
+    public void update(int period)
+    {
+
+        fPopulation *= fPopulationMod;
 
     }
 

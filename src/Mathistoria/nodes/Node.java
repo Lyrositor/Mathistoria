@@ -10,16 +10,6 @@ package Mathistoria;
 
 abstract class Node {
 
-    public static enum Type {
-        Event,
-        Nation,
-        Person,
-        War,
-        Default
-    }
-
-    protected final static Type fType = Type.Default;
-
     protected int fNodeId;
 
     /**
@@ -29,16 +19,6 @@ abstract class Node {
     {
 
         return fNodeId;
-
-    }
-
-    /**
-     * Returns the node's type.
-     */
-    public Type getType()
-    {
-
-        return fType;
 
     }
 
